@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+
+#Condicion para cuaquier fichero que este llamando
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d 
+
+#Cualquier cosa que este entre principio y final de consulta se tendra que dirigir a index.php
+#y que despues no se apliquen mas reglas
+RewriteRule ^(.)$ index.php [NC,L]
